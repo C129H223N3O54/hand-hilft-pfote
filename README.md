@@ -14,8 +14,7 @@ Reines HTML, CSS und ein kleines JavaScript ohne Framework, ohne Build-Schritt u
 ├── index.html                      Startseite „Über uns“
 ├── aktuelle-aktion/index.html      Aktuelle Aktion (Weihnachten für Tiere 2026)
 ├── vergangene-aktionen/
-│   ├── index.html                  Chronik 2012 bis heute
-│   └── 2025/index.html             Wunschzettel-Galerie 2025 (88 Bilder)
+│   └── index.html                  Chronik 2012 bis heute
 ├── impressum/index.html
 ├── datenschutzerklarung/index.html
 ├── 404.html                        eigene Fehlerseite
@@ -28,7 +27,7 @@ Reines HTML, CSS und ein kleines JavaScript ohne Framework, ohne Build-Schritt u
 │   ├── seiten/                     Titelbilder der Seiten (je 800 und 1600 px breit)
 │   ├── team/                       Rebecca, Jan Erik, Bonnie
 │   ├── jahre/                      ein Bild pro Jahr für „Vergangene Aktionen“
-│   └── aktionen/2025/              Wunschzettel 2025
+│   └── aktionen/                   Wunschzettel der aktuellen Aktion (z. B. aktionen/2026/)
 ├── favicon.ico
 ├── sitemap.xml
 ├── robots.txt
@@ -46,19 +45,14 @@ Alle Seiten sind normale HTML-Dateien. Du kannst sie mit jedem Texteditor bearbe
 
 ### Gelbe Platzhalter
 
-Alles, was auf der Seite **gelb markiert** in eckigen Klammern steht, z. B. `[PLATZHALTER: Name des Tierheims 2026]`, musst du noch ausfüllen. Ersetze dabei das ganze Stück `<span class="platzhalter">[…]</span>` durch deinen Text. Im Moment gibt es Platzhalter in:
-
-- `aktuelle-aktion/index.html` (Tierheim 2026, Einleitungstext, Wunschzettel)
-- `vergangene-aktionen/index.html` (Ergebnis der Aktion 2025)
-
-Mit der Suche nach `platzhalter` in deinem Editor findest du alle Stellen.
+Für Texte, die noch fehlen, gibt es die Markierung `<span class="platzhalter">[…]</span>`. Sie erscheint auf der Seite **gelb**, damit nichts Unfertiges übersehen wird. Im Moment gibt es keine Platzhalter mehr. Mit der Suche nach `platzhalter` in deinem Editor findest du alle Stellen.
 
 ### Neue Wunschzettel für die aktuelle Aktion
 
 1. Bilder in den Ordner `bilder/aktionen/2026/` legen. Ideal ist **WebP**, etwa 600 × 338 Pixel. JPG oder PNG gehen auch.
    Dateinamen bitte ohne Leerzeichen und Umlaute, z. B. `wunschzettel-01.webp`.
    *Umwandeln nach WebP unter Windows:* z. B. mit dem kostenlosen Programm „XnConvert“ oder in „Paint.NET“ über *Speichern unter → WebP*.
-2. In `aktuelle-aktion/index.html` die Vorlagezeile im Kommentar unter `<ul class="galerie">` kopieren, ohne die Kommentarzeichen `<!--` und `-->` einfügen und Dateiname und Alt-Text anpassen:
+2. In `aktuelle-aktion/index.html` den auskommentierten Abschnitt „Die Wunschzettel“ einschalten: die Zeile, die mit `<!-- Abschnitt „Die Wunschzettel“` beginnt, und das `-->` am Ende des Abschnitts löschen. Danach pro Wunschzettel eine Zeile in der Liste `<ul class="galerie">` anlegen und Dateiname und Alt-Text anpassen:
    ```html
    <li><a href="../bilder/aktionen/2026/wunschzettel-01.webp"><img src="../bilder/aktionen/2026/wunschzettel-01.webp" width="600" height="338" alt="Bello wünscht sich ein Körbchen" loading="lazy" decoding="async"></a></li>
    ```
@@ -66,15 +60,14 @@ Mit der Suche nach `platzhalter` in deinem Editor findest du alle Stellen.
 
 ### Wenn eine Aktion endet (z. B. 2026 ist vorbei)
 
-1. Ordner `vergangene-aktionen/2025/` kopieren und als `vergangene-aktionen/2026/` einfügen. Dort Titel, Untertitel und die Bilderliste anpassen. Am einfachsten kopierst du die `<li>`-Zeilen aus `aktuelle-aktion/index.html`. Achtung: Die Bildpfade beginnen dort mit `../../bilder/…` statt `../bilder/…`.
-2. In `vergangene-aktionen/index.html` den obersten Block (2026, „Läuft aktuell“) durch einen normalen Jahresblock ersetzen. Als Vorlage dient der Block von 2024. Ein Jahresbild legst du als `bilder/jahre/2026.webp` ab, ca. 800 px breit.
-3. `aktuelle-aktion/index.html` für das neue Jahr umschreiben.
-4. In `sitemap.xml` die neue Adresse ergänzen.
+1. In `vergangene-aktionen/index.html` den obersten Block (2026, „Läuft aktuell“) durch einen normalen Jahresblock ersetzen, z. B. „Tiere in Not Odenwald e.V. – alle Wunschzettel erfüllt“. Als Vorlage dient der Block von 2024. Ein Jahresbild legst du als `bilder/jahre/2026.webp` ab, ca. 800 px breit.
+2. Einen neuen Block „Läuft aktuell :-)“ für das neue Jahr ganz oben einfügen.
+3. `aktuelle-aktion/index.html` für das neue Jahr umschreiben. Alte Wunschzettel-Bilder kannst du aus `bilder/aktionen/` löschen.
 
 ### Menü, Kopf- und Fußzeile ändern
 
-Kopfzeile und Fußzeile stehen in allen 7 HTML-Dateien gleich (markiert mit `KOPFZEILE` und `FUSSZEILE`). Wenn du dort etwas änderst, z. B. einen neuen Menüpunkt, musst du das in **jeder** Datei tun. Mit „Suchen und Ersetzen in Dateien“ deines Editors geht das in einem Rutsch.
-Hinweis: Die Pfade unterscheiden sich je nach Ordnertiefe (`./`, `../`, `../../`). In `404.html` beginnen sie mit `/`.
+Kopfzeile und Fußzeile stehen in allen 6 HTML-Dateien gleich (markiert mit `KOPFZEILE` und `FUSSZEILE`). Wenn du dort etwas änderst, z. B. einen neuen Menüpunkt, musst du das in **jeder** Datei tun. Mit „Suchen und Ersetzen in Dateien“ deines Editors geht das in einem Rutsch.
+Hinweis: Die Pfade unterscheiden sich je nach Ordnertiefe (`./` bzw. `../`). In `404.html` beginnen sie mit `/`.
 
 ### Seite vor dem Hochladen anschauen
 
@@ -167,14 +160,14 @@ Nach dem Umzug in Chrome, Edge oder Firefox `https://hand-hilft-pfote.de` öffne
 | Tracking-Vorbereitung (pagepulse) | im Baukasten-Skript enthalten, war inaktiv | entfernt | kein Tracking |
 | WordPress-Emoji-Skript | konnte bei alten Browsern `s.w.org` laden | entfernt | externe Anfrage |
 | Instagram/Twitter | im Baukasten angelegt, aber deaktiviert | entfernt | nicht genutzt |
-| Aktuelle Aktion | 2025, nur Galerie | **2026 mit Platzhaltern** | auf deinen Wunsch; 2025 ist abgeschlossen |
-| Galerie 2025 | lag unter „Aktuelle Aktion“ | jetzt unter `/vergangene-aktionen/2025/`, verlinkt bei 2025 | 2025 ist abgeschlossen |
-| Vergangene Aktionen 2025 | „Läuft aktuell :-)“ | Tierschutzverein Frankfurt am Main + Platzhalter fürs Ergebnis; neuer Eintrag 2026 „Läuft aktuell :-)“ | auf deinen Wunsch |
+| Aktuelle Aktion | 2025, nur Galerie | **2026: Tiere in Not Odenwald e.V.**, mit Link zum Tierheim | auf deinen Wunsch; 2025 ist abgeschlossen |
+| Galerie 2025 (88 Wunschzettel) | lag unter „Aktuelle Aktion“ | entfernt | auf deinen Wunsch, 2025 ist abgeschlossen |
+| Vergangene Aktionen 2025 | „Läuft aktuell :-)“ | „Tierschutzverein Frankfurt am Main – alle Wunschzettel erfüllt“; neuer Eintrag 2026 „Läuft aktuell :-)“ | auf deinen Wunsch |
 | Seitentitel im Browser-Tab | „Was wir tun“, „Unterstützen Sie uns“ | passend zur Seite | waren vertauscht/irreführend |
 | Fußzeile | Facebook- und Mail-Symbol | zusätzlich E-Mail und Telefon als Text, Telefon-Symbol | Ersatz fürs Kontaktformular, wie gewünscht |
 | Telefonnummer | „0160-90114849“ bzw. „016090114849“ | einheitlich „0160 90114849“ | Vereinheitlichung |
-| Bilder | JPG/PNG, 25 MB | WebP, 4,3 MB, mit `loading="lazy"` | Ladezeit, gerade am Handy |
-| Bilder | ohne Alt-Text | alle mit Alt-Text, Wunschzettel mit dem Wunsch als Text | Barrierefreiheit |
+| Bilder | JPG/PNG | WebP in sinnvollen Größen, mit `loading="lazy"` | Ladezeit, gerade am Handy |
+| Bilder | ohne Alt-Text | alle mit Alt-Text | Barrierefreiheit |
 | Logo | PNG | SVG (nachgezeichnet) | scharf auf allen Bildschirmen |
 | Schriften | 36 Schnitte von Roboto und Raleway | 5 Schnitte, die tatsächlich genutzt werden | kleiner, schneller |
 | Galerie-Großansicht | Baukasten-Lightbox | eigenes kleines Skript, ohne JS öffnet sich das Bild direkt | keine Abhängigkeiten |
