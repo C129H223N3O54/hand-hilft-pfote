@@ -199,16 +199,11 @@ p { margin: 0 0 1em; }
 /* ---------- Jahreschronik (Vergangene Aktionen) ---------- */
 .chronik { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem 2rem; }
 .chronik li { text-align: center; }
+.chronik img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 50% / 34%; }
 .chronik h2 { color: var(--rot); font-family: var(--schrift); font-size: 1.6rem; margin: 1.2rem 0 .8rem; }
 .chronik p { font-size: .95rem; max-width: 28rem; margin-inline: auto; }
-.chronik .logo-karte {
-  aspect-ratio: 3 / 2; border-radius: 24px; background: var(--weiss);
-  border: 1px solid #e5e5e5; box-shadow: 0 2px 10px rgba(0,0,0,.06);
-  display: grid; grid-template-rows: minmax(0, 1fr); place-items: center; padding: 1.5rem; overflow: hidden;
-}
-.chronik .logo-karte img { width: 75%; height: 100%; min-height: 0; object-fit: contain; }
-.chronik .ohne-logo { background: var(--grau-bg); }
-.chronik .ohne-logo img { width: 45%; opacity: .55; }
+.chronik .ohne-bild { aspect-ratio: 3 / 2; border-radius: 50% / 34%; background: var(--grau-bg); display: grid; place-items: center; }
+.chronik .ohne-bild img { width: 45%; aspect-ratio: auto; border-radius: 0; opacity: .6; }
 @media (max-width: 640px) { .chronik { grid-template-columns: 1fr; } }
 
 /* ---------- Galerie ---------- */
