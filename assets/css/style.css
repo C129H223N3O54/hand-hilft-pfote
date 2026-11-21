@@ -171,6 +171,7 @@ p { margin: 0 0 1em; }
 .spenden p { margin-bottom: .9em; }
 .spenden strong { display: block; }
 .iban { font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.hinweis { font-size: .9rem; opacity: .9; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding-block: 3.5rem; }
