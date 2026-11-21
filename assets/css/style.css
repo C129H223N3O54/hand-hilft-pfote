@@ -96,7 +96,7 @@ p { margin: 0 0 1em; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding-block: .75rem;
 }
-.logo { display: block; background: var(--weiss); padding: 4px 8px; line-height: 0; }
+.logo { display: block; line-height: 0; }
 .logo img { width: 140px; height: auto; }
 
 .nav-toggle {
