@@ -26,7 +26,7 @@ Reines HTML, CSS und ein kleines JavaScript ohne Framework, ohne Build-Schritt u
 ├── bilder/
 │   ├── seiten/                     Titelbilder der Seiten (je 800 und 1600 px breit)
 │   ├── team/                       Rebecca, Jan Erik, Bonnie
-│   ├── logos/                      Logos der unterstützten Tierheime („Vergangene Aktionen“)
+│   ├── jahre/                      ein Bild pro Jahr für „Vergangene Aktionen“
 │   └── aktionen/                   Wunschzettel der aktuellen Aktion (z. B. aktionen/2026/)
 ├── favicon.ico
 ├── sitemap.xml
@@ -60,7 +60,7 @@ Für Texte, die noch fehlen, gibt es die Markierung `<span class="platzhalter">[
 
 ### Wenn eine Aktion endet (z. B. 2026 ist vorbei)
 
-1. In `vergangene-aktionen/index.html` den obersten Block (2026, „Läuft aktuell“) durch einen normalen Jahresblock ersetzen, z. B. „Tiere in Not Odenwald e.V. – alle Wunschzettel erfüllt“. Als Vorlage dient der Block von 2024. Das Logo des Tierheims legst du in `bilder/logos/` ab (WebP oder PNG, ca. 300–480 px breit). Gibt es kein Logo, nimm die Vorlage mit `logo-karte ohne-logo` (z. B. Block 2025).
+1. In `vergangene-aktionen/index.html` den obersten Block (2026, „Läuft aktuell“) durch einen normalen Jahresblock ersetzen, z. B. „Tiere in Not Odenwald e.V. – alle Wunschzettel erfüllt“. Als Vorlage dient der Block von 2024. Ein Jahresbild legst du als `bilder/jahre/2026.webp` ab, ca. 800 px breit.
 2. Einen neuen Block „Läuft aktuell :-)“ für das neue Jahr ganz oben einfügen.
 3. `aktuelle-aktion/index.html` für das neue Jahr umschreiben. Alte Wunschzettel-Bilder kannst du aus `bilder/aktionen/` löschen.
 
