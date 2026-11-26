@@ -28,6 +28,8 @@ Reines HTML, CSS und ein kleines JavaScript ohne Framework, ohne Build-Schritt u
 │   ├── team/                       Rebecca, Jan Erik, Bonnie
 │   ├── jahre/                      ein Bild pro Jahr für „Vergangene Aktionen“
 │   └── aktionen/                   Wunschzettel der aktuellen Aktion (z. B. aktionen/2026/)
+├── werkzeuge/                      Arbeitsdateien, nicht Teil der Seite
+│   └── wunschzettel-2026/          Hintergrundbild + Skript für die Wunschzettel 2026
 ├── favicon.ico
 ├── sitemap.xml
 ├── robots.txt
