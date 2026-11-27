@@ -28,6 +28,8 @@ Reines HTML, CSS und ein kleines JavaScript ohne Framework, ohne Build-Schritt u
 │   ├── team/                       Rebecca, Jan Erik, Bonnie
 │   ├── jahre/                      ein Bild pro Jahr für „Vergangene Aktionen“
 │   └── aktionen/                   Wunschzettel der aktuellen Aktion (z. B. aktionen/2026/)
+├── werkzeuge/                      Arbeitsdateien, nicht Teil der Seite
+│   └── wunschzettel-2026/          Liste, Fotos und Skripte für die Wunschzettel 2026
 ├── favicon.ico
 ├── sitemap.xml
 ├── robots.txt
@@ -49,10 +51,14 @@ Für Texte, die noch fehlen, gibt es die Markierung `<span class="platzhalter">[
 
 ### Neue Wunschzettel für die aktuelle Aktion
 
+**2026:** Die Wunschzettel erzeugt ein Skript aus der Excel-Liste und den Tierfotos. Es trägt auch die Galerie auf der Seite ein. Anleitung: [`werkzeuge/wunschzettel-2026/LIESMICH.md`](werkzeuge/wunschzettel-2026/LIESMICH.md). Auch „Wunsch erfüllt“ wird dort in der Liste markiert.
+
+Von Hand geht es so:
+
 1. Bilder in den Ordner `bilder/aktionen/2026/` legen. Ideal ist **WebP**, etwa 600 × 338 Pixel. JPG oder PNG gehen auch.
    Dateinamen bitte ohne Leerzeichen und Umlaute, z. B. `wunschzettel-01.webp`.
    *Umwandeln nach WebP unter Windows:* z. B. mit dem kostenlosen Programm „XnConvert“ oder in „Paint.NET“ über *Speichern unter → WebP*.
-2. In `aktuelle-aktion/index.html` den auskommentierten Abschnitt „Die Wunschzettel“ einschalten: die Zeile, die mit `<!-- Abschnitt „Die Wunschzettel“` beginnt, und das `-->` am Ende des Abschnitts löschen. Danach pro Wunschzettel eine Zeile in der Liste `<ul class="galerie">` anlegen und Dateiname und Alt-Text anpassen:
+2. In `aktuelle-aktion/index.html` im Abschnitt „Die Wunschzettel“ pro Wunschzettel eine Zeile in der Liste `<ul class="galerie">` anlegen und Dateiname und Alt-Text anpassen. Achtung: Was zwischen `WUNSCHZETTEL-START` und `WUNSCHZETTEL-ENDE` steht, überschreibt das Skript beim nächsten Lauf.
    ```html
    <li><a href="../bilder/aktionen/2026/wunschzettel-01.webp"><img src="../bilder/aktionen/2026/wunschzettel-01.webp" width="600" height="338" alt="Bello wünscht sich ein Körbchen" loading="lazy" decoding="async"></a></li>
    ```
