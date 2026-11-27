@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /werkzeuge/
 
 Sitemap: https://hand-hilft-pfote.de/sitemap.xml
