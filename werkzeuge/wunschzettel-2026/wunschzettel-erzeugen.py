@@ -33,6 +33,7 @@ RAHMEN = 6                               # heller Rand um das Foto
 TEXT_X, TEXT_BREITE = 770, 570           # Textblock rechts vom Foto, links vom Baum
 TEXT_PT, TEXT_MIN_PT = 60, 46            # einheitliche Größe; kleiner nur, wenn es sonst nicht passt
 TEXT_ZEILEN_MAX = 4
+ALLEIN_UNSCHOEN = {"ein", "eine", "einen", "der", "die", "das", "den"}  # nie allein in einer Zeile
 TEXT_STRICH = 1                          # macht die schmale Schreibschrift etwas kräftiger
 PREIS_Y, PREIS_PT = 948, 42
 STEMPEL_MITTE, STEMPEL_HOEHE = (1560, 760), 520   # „Wunsch erfüllt“ unten rechts über dem Baum
@@ -142,13 +143,17 @@ def umbrechen(text, schrift, breite):
 
 def passender_text(text):
     """Einheitliche Schriftgröße für alle Zettel. Nur wenn der Text dann mehr als
-    TEXT_ZEILEN_MAX Zeilen braucht oder ein einzelnes Wort zu breit ist, wird sie kleiner."""
+    TEXT_ZEILEN_MAX Zeilen braucht, ein einzelnes Wort zu breit ist oder ein Artikel
+    allein in einer Zeile stünde, wird sie kleiner."""
+    notloesung = None
     for pt in range(TEXT_PT, TEXT_MIN_PT - 1, -2):
         f = ImageFont.truetype(SCHRIFT_TEXT, pt)
         zeilen = umbrechen(text, f, TEXT_BREITE)
         if len(zeilen) <= TEXT_ZEILEN_MAX and all(f.getlength(z) <= TEXT_BREITE for z in zeilen):
-            return f, zeilen
-    return f, zeilen                          # kleinste Größe, notfalls etwas breiter
+            if not any(z.lower() in ALLEIN_UNSCHOEN for z in zeilen):
+                return f, zeilen
+            notloesung = notloesung or (f, zeilen)   # passt, aber ein Artikel steht allein
+    return notloesung or (f, zeilen)          # notfalls kleinste Größe, etwas breiter
 
 
 def mit_schatten(bild, zeichne, unschaerfe, deckkraft, versatz=(0, 0)):
